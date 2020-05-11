@@ -1,9 +1,152 @@
 <html>
  <head>
+<style>
+ 
+body{width:100%;margin:0 auto;padding:0;background:linear-gradient(-45deg, #c4d2ef, #dfe6f6);height:auto;font-family:font-najiri;}
+.logosvg {
+    width: 90%;
+    margin: 10px auto 10px auto;
+    text-align: center;
+}
+.logosvg svg {
+    width: 15%;
+    height: 15%;
+    background: white;
+    border-radius: 100%;
+    box-shadow: -10px -10px 20px -5px #f9fbfd, 10px 10px 20px #a9bee8;
+}
+.mnajiri-c {
+    width: 45%;
+    margin: 10px auto 10px auto;
+    padding: 10px;
+}
 
-    <link rel="stylesheet" type="text/css" href="css/najiri.css">  
+.mnajiri-c ul{}
+
+.mnajiri-c ul li {list-style: none;
+    background: #fff;
+    padding: 20px;
+    margin: 10px 0 10px 35px;
+    border-radius: 10px;
+    box-shadow: -10px -10px 20px -5px #f9fbfd, 10px 10px 20px #a9bee8;
+}
+.mnajiri-c ul li a{color: #2d213f;text-decoration: none;}
+ 
+.mnajiri-c h2{padding: 20px 40px 0px 0px;
+margin: 10px 0 10px 35px;}
+
+@media (min-width: 320px) and (max-width: 480px) {
+ 
+.logosvg svg {
+    width: 50%;
+    height: 50%;
+
+}
+.mnajiri-c{width: 90%;}
+}
+
+
+
+
+
+
+
+
+
+.footer {padding: 10px 0px 10px 0px;}
+#mnajiri-sm .s-najiri {width:100%; text-align:center;}
+#mnajiri-sm .s-najiri svg {width:20px;height:20px;margin-top:7px}
+#mnajiri-sm .s-najiri svg path {fill:#fff}
+#mnajiri-sm .s-najiri a {display:inline-block; margin-right:7px; width:35px; height:35px; box-shadow: 0px 7px 15px 0px rgba(0,0,0,0.4); transition: all ease-in-out 300ms; border-radius:100px;}
+#mnajiri-sm .s-najiri a:last-child {margin-right:0px;}
+#mnajiri-sm .s-najiri a:hover {box-shadow: 0px 23px 15px -3px rgba(0,0,0,0.25); transform: translate(0px, -10px) scale(1.05);}
+#mnajiri-sm .s-najiri .facebook{background:#3a579a}
+#mnajiri-sm .s-najiri .twitter {background:#00abf0}
+#mnajiri-sm .s-najiri .googleplus {background:#df4a32}
+#mnajiri-sm .s-najiri .youtube {background:#cc181e}
+#mnajiri-sm .s-najiri .instagram {background:#992ebc}
+#mnajiri-sm .s-najiri .pinterest {background:#e60023}
+
+.social-fixed {
+    bottom: 15px;
+    left: 17px;
+}
+.social-fixed {
+    position: fixed;
+    top: auto;
+    bottom: 40px;
+    left: 30px;
+    z-index: 94;
+    -webkit-writing-mode: vertical-lr;
+    writing-mode: vertical-lr;
+    -webkit-transition: all 250ms linear;
+    transition: all 250ms linear;
+}
+
+.social-fixed a {
+    position: relative;
+    text-align: center;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: 
+    #fff;
+    display: inline-block;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+.copyr {
+    bottom: 15px;
+    right: 17px;
+}
+.copyr {
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    z-index: 94;
+    -webkit-writing-mode: vertical-lr;
+    writing-mode: vertical-lr;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: 
+    #fff;
+    transform: rotate(180deg);
+}
+
+
+
+.scroll-to-top {
+    right: 22px;
+    bottom: 180px;
+}
+.scroll-to-top {
+    position: fixed;
+    bottom: 210px;
+    right: 36px;
+    opacity: 0;
+    visibility: hidden;
+    width: 10px;
+    height: 40px;
+    z-index: 251;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 10px 40px;
+    cursor: pointer;
+    background-image: url('../img/arrow-up.png');
+    transform: translateY(-15px);
+    -webkit-transition: all 250ms linear;
+    transition: all 250ms linear;
+}
+  </style>
  </head> 
  <body>
+  <div id='mnajiri-c'>
   <div class='logosvg'><svg height='1024.000000pt' preserveaspectratio='xMidYMid meet' version='1.0' viewbox='0 0 1024.000000 1024.000000' width='1024.000000pt' xmlns='http://www.w3.org/2000/svg'>
                 <metadata>
                 Created by potrace 1.15, written by Peter Selinger 2001-2017
@@ -14,5 +157,21 @@
                 </svg></div>
 
 
+  </div>
+<div class='social-fixed'>
+			<a class='hover-target' href='https://instagram.com/mdwabblog' target='_blank'>Instagram</a>
+			<a class='hover-target' href='https://www.facebook.com/mnajiri' target='_blank'>Facebook</a>
+		</div>
+
+
+
+
+
+
+
+<div class='copyr'>
+			2020 &#169; mnajiri
+		</div>
+  </div>
  <body>
 </html>
