@@ -152,6 +152,32 @@ margin: 10px 0 10px 35px;}
     -webkit-transition: all 250ms linear;
     transition: all 250ms linear;
 }
+	
+	
+#timer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  padding:5px;
+  direction: ltr;
+}
+.mdw-najiri{text-align: center;background:
+#fff;
+box-shadow: 0px 1px 14px -3px;
+border-radius: 5px;padding: 5px;}
+svg{width: 200px;}
+
+.number{
+  padding: 5px;font-size: 30px;background:#ea473b;color:#fff;
+margin: 2px;
+border-radius: 2px;
+}
+
+.labels{background:#aa0040;
+color:#fff;
+border-radius: 2px;
+margin: 2px;}
   </style>
  </head> 
  <body>
@@ -163,19 +189,41 @@ margin: 10px 0 10px 35px;}
                 <path d='M4720 9979 c-301 -22 -678 -84 -925 -151 -143 -39 -405 -129 -519 -180 -50 -22 -116 -49 -146 -60 -106 -38 -447 -219 -535 -284 -16 -12 -52 -34 -80 -49 -67 -37 -149 -95 -347 -247 -250 -193 -480 -409 -723 -678 -154 -171 -398 -493 -460 -605 -15 -27 -37 -63 -49 -80 -65 -88 -246 -429 -284 -535 -11 -30 -38 -96 -60 -146 -84 -190 -186 -512 -231 -729 -76 -366 -111 -721 -111 -1115 0 -384 32 -709 106 -1095 45 -230 169 -614 268 -827 20 -42 36 -83 36 -90 0 -30 210 -420 284 -528 17 -25 39 -61 50 -80 27 -51 121 -184 186 -265 31 -38 82 -104 113 -146 130 -177 603 -653 777 -783 30 -22 111 -84 180 -137 116 -90 291 -209 306 -209 4 0 21 -11 38 -23 82 -63 432 -249 546 -291 36 -13 102 -40 148 -60 263 -113 700 -238 932 -266 41 -5 141 -18 221 -29 255 -34 461 -44 794 -38 315 7 352 9 645 47 357 46 646 120 1021 263 36 14 90 37 120 50 30 14 81 35 114 47 80 30 304 150 493 263 381 229 790 571 1124 939 223 245 415 501 565 750 113 189 233 413 263 493 12 33 33 84 47 114 13 30 36 84 50 120 143 375 217 664 263 1021 38 293 40 330 47 645 6 333 -4 539 -38 794 -11 80 -24 180 -29 221 -28 232 -153 669 -266 932 -20 46 -47 112 -60 148 -42 114 -228 464 -291 546 -12 17 -23 34 -23 38 0 15 -120 190 -209 306 -53 69 -108 141 -121 160 -112 160 -611 659 -798 797 -43 31 -108 82 -147 113 -81 65 -214 159 -265 186 -19 11 -55 33 -80 50 -108 74 -498 284 -528 284 -7 0 -48 16 -90 36 -213 99 -597 223 -827 268 -220 42 -504 81 -715 96 -155 11 -624 11 -780 -1z m900 -334 c292 -33 553 -81 765 -141 608 -173 1117 -444 1635 -874 135 -111 500 -468 500 -488 0 -9 -143 -12 -632 -12 l-633 0 -1055 -1055 c-580 -580 -1062 -1055 -1070 -1055 -8 0 -488 475 -1068 1055 l-1053 1055 -635 0 c-498 0 -634 3 -634 12 0 7 87 99 192 204 271 267 473 433 758 619 645 423 1341 647 2175 699 128 8 626 -4 755 -19z m-3254 -2237 l671 -673 11 -130 c7 -71 19 -224 27 -340 8 -115 24 -336 35 -490 11 -154 29 -413 40 -575 43 -620 61 -871 75 -1060 8 -107 19 -265 25 -350 5 -85 17 -243 25 -350 8 -107 19 -265 25 -350 5 -85 15 -213 20 -285 5 -71 17 -236 25 -365 9 -129 25 -354 35 -500 11 -146 22 -303 25 -350 3 -47 12 -173 20 -280 26 -369 27 -390 14 -390 -39 0 -429 192 -609 299 -501 301 -983 739 -1359 1234 -302 399 -569 924 -686 1352 -95 347 -121 478 -157 785 -30 251 -32 799 -5 1050 60 562 192 1026 427 1497 162 326 352 615 583 886 27 31 52 57 56 57 3 0 308 -303 677 -672z m6275 594 c227 -275 421 -572 568 -872 109 -223 147 -316 222 -540 104 -317 172 -642 209 -1009 16 -158 13 -759 -5 -926 -77 -735 -293 -1358 -673 -1945 -437 -674 -1115 -1289 -1807 -1638 -118 -59 -306 -142 -322 -142 -16 0 -16 9 -3 175 5 72 19 263 30 425 26 380 56 800 76 1065 8 116 19 273 24 350 5 77 13 205 19 285 24 313 52 702 61 845 11 169 44 639 59 850 6 77 20 273 31 435 11 162 27 387 35 500 8 113 19 275 25 360 6 85 18 238 26 340 l15 185 662 663 c364 364 669 662 677 662 8 0 40 -31 71 -68z m-4154 -2714 l643 -643 643 643 c353 353 647 642 653 642 14 0 19 -46 39 -340 9 -124 27 -378 40 -565 14 -187 32 -441 40 -565 9 -124 25 -351 35 -505 32 -443 59 -833 75 -1055 8 -113 17 -248 20 -300 4 -52 13 -178 21 -280 15 -201 14 -188 45 -625 11 -165 29 -406 39 -535 14 -179 16 -238 7 -246 -21 -20 -252 -98 -432 -147 -118 -32 -207 -52 -335 -76 -354 -65 -493 -76 -900 -75 -286 1 -376 4 -525 22 -195 23 -323 43 -425 66 -36 8 -90 20 -120 26 -93 20 -269 70 -390 111 -161 53 -179 61 -185 79 -3 8 4 128 15 266 10 137 22 286 25 330 23 339 39 566 56 789 11 143 24 332 29 420 6 88 14 213 20 278 6 65 14 189 20 275 5 86 16 252 25 367 8 116 22 307 30 425 21 304 53 758 65 935 6 83 15 218 21 300 26 411 45 625 57 625 4 0 296 -289 649 -642z'/>
                 </g>
                 </svg></div>
-<ul>
-<li><a href="https://t1trap.blogspot.com/2020/04/blog-post_26.html">mdwab 6</a></li>
-<li><a href="http://">mdwab 5</a></li>
-<li><a href="https://t1trap.blogspot.com/2020/04/blog-post_26.html">mdwab 4</a></li>
-<li><a href="https://t1trap.blogspot.com/2020/04/blog-post_26.html">mdwab 3</a></li>
-<li><a href="https://t1trap.blogspot.com/2020/04/blog-post_26.html">mdwab 2</a></li>
-<li><a href="https://t1trap.blogspot.com/2020/04/blog-post_26.html">mdwab 1</a></li>
-</ul>
+
+<div class="mdw-najiri">
+<h2>
+سكريبت العد التنازلي بلوجر 
+ </h2>
+  <h3>
+    لم يبقى سوي
+    </h3>
+  <div id="timer">
+    <div id='days' class="board">
+      <div class="number"></div>
+      <div class="labels">أيام</div>
+    </div>
+
+    <div id='hours' class="board">
+      <div class="number"></div>
+      <div class="labels">ساعات</div>
+    </div>
+
+    <div id='minutes' class="board">
+      <div class="number"></div>
+      <div class="labels">الدقائق</div>
+    </div>
+
+    <div id='seconds' class="board">
+      <div class="number"></div>
+      <div class="labels">ثواني</div>
+    </div>
+  </div>
+  </div>
   <div id='mnajiri-c'>
 
 <div class='social-fixed'>
 			<a class='hover-target' href='https://instagram.com/mdwabblog' target='_blank'>Instagram</a>
-			<a class='hover-target' href='https://www.facebook.com/mnajiri' target='_blank'>Facebook</a>
+			<a class='hover-target' href='https://www.facebook.com/mdwabblog' target='_blank'>Facebook</a>
 		</div>
 
 
@@ -189,5 +237,40 @@ margin: 10px 0 10px 35px;}
 		</div>
   </div>
 	 </div>
+	
+	<script type="text/javascript">
+	
+	// Set the date we're counting down to
+var countDownDate = new Date("Aug 18, 2022 10:00:00").getTime();  // CHANGE DATE AND TIME HERE
+
+// Update the count down every 1 second
+var countdown = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+
+  // Find the difference between now and the count down date
+  var difference = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+  // If the difference is less than 0, stop countdown
+  if (difference < 0) {
+    clearInterval(countdown);
+    days = 0, hours = 0, minutes = 0, seconds = 0;
+  }
+
+  // Output the result
+  document.getElementById("days").children[0].innerText = days;
+  document.getElementById("hours").children[0].innerText = hours;
+  document.getElementById("minutes").children[0].innerText = minutes;
+  document.getElementById("seconds").children[0].innerText = seconds;
+}, 1000);
+	</script>
+	
  <body>
 </html>
