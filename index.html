@@ -33,7 +33,7 @@
       padding: 10px;
     }
 
-    .mnajiri-c ul {}
+
 
     .mnajiri-c ul li {
       list-style: none;
@@ -86,50 +86,40 @@
       margin: 5%;
 
     }
+    .divBtn h2{
+      text-align: center;
+    }
+    .divBtn h2:hover{
+      color: gray;
+    }
 
-/* CSS */
-.button-55 {
-  align-self: center;
-  background-color: #fff;
-  background-image: none;
-  background-position: 0 90%;
-  background-repeat: repeat no-repeat;
-  background-size: 4px 3px;
-  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-  border-style: solid;
-  border-width: 2px;
-  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
-  box-sizing: border-box;
-  color: #41403e;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Neucha, sans-serif;
-  font-size: 1rem;
-  line-height: 23px;
-  outline: none;
-  padding: 2% 20% 2% 20%;
-  text-decoration: none;
-  transition: all 235ms ease-in-out;
-  border-bottom-left-radius: 15px 255px;
-  border-bottom-right-radius: 225px 15px;
-  border-top-left-radius: 255px 15px;
-  border-top-right-radius: 15px 225px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  display: block;
-  margin: auto auto 5% auto;
-}
+    .divBtn ul{
+      display: grid;
+      grid-template-columns: auto auto auto;
+      list-style-type: none;
+      padding: 5px;
+    }
+    .divBtn ul li{
+      background: white;
+      border-radius: 5px;
+      padding: 5px;
+      margin: 5px;
+      box-shadow: -5px -5px 10px -5px #f9fbfd, 5px 5px 20px #a9bee8;
+    }
+    .divBtn ul li:hover{
+      box-shadow: -10px -10px 20px -20px #f9fbfd, 10px 10px 40px #678acf;
+    }
 
-.button-55:hover {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
-  transform: translate3d(0, 2px, 0);
-}
 
-.button-55:focus {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
-}
-
+    .divBtn ul li a{
+      text-decoration: none;
+      color: gray;
+    }
+    .divBtn .qBio{
+      text-align: left;
+      margin: auto;
+      color: gray;
+    }
 
 
 
@@ -192,146 +182,10 @@
   background: #A46BF5;
 }
 
-/* CSS */
-.button-49,
-.button-49:after {
-  width: 150px;
-  height: 76px;
-  line-height: 78px;
-  font-size: 20px;
-  font-family: 'Bebas Neue', sans-serif;
-  background: linear-gradient(45deg, transparent 5%, #FF013C 5%);
-  border: 0;
-  color: #fff;
-  letter-spacing: 3px;
-  box-shadow: 6px 0px 0px #00E6F6;
-  outline: transparent;
-  position: relative;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button-49:after {
-  --slice-0: inset(50% 50% 50% 50%);
-  --slice-1: inset(80% -6px 0 0);
-  --slice-2: inset(50% -6px 30% 0);
-  --slice-3: inset(10% -6px 85% 0);
-  --slice-4: inset(40% -6px 43% 0);
-  --slice-5: inset(80% -6px 5% 0);
-  
-  content: 'ALTERNATE TEXT';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #FF013C 5%);
-  text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
-  clip-path: var(--slice-0);
-}
-
-.button-49:hover:after {
-  animation: 1s glitch;
-  animation-timing-function: steps(2, end);
-}
-
-@keyframes glitch {
-  0% {
-    clip-path: var(--slice-1);
-    transform: translate(-20px, -10px);
-  }
-  10% {
-    clip-path: var(--slice-3);
-    transform: translate(10px, 10px);
-  }
-  20% {
-    clip-path: var(--slice-1);
-    transform: translate(-10px, 10px);
-  }
-  30% {
-    clip-path: var(--slice-3);
-    transform: translate(0px, 5px);
-  }
-  40% {
-    clip-path: var(--slice-2);
-    transform: translate(-5px, 0px);
-  }
-  50% {
-    clip-path: var(--slice-3);
-    transform: translate(5px, 0px);
-  }
-  60% {
-    clip-path: var(--slice-4);
-    transform: translate(5px, 10px);
-  }
-  70% {
-    clip-path: var(--slice-2);
-    transform: translate(-10px, 10px);
-  }
-  80% {
-    clip-path: var(--slice-5);
-    transform: translate(20px, -10px);
-  }
-  90% {
-    clip-path: var(--slice-1);
-    transform: translate(-10px, 0px);
-  }
-  100% {
-    clip-path: var(--slice-1);
-    transform: translate(0);
-  }
-}
-
-@media (min-width: 768px) {
-  .button-49,
-  .button-49:after {
-    width: 200px;
-    height: 86px;
-    line-height: 88px;
-  }
-}
 
 
-/* CSS */
-.button-67 {
-  align-items: center;
-  background: #f5f5fa;
-  border: 0;
-  border-radius: 8px;
-  box-shadow: -10px -10px 30px 0 #fff,10px 10px 30px 0 #1d0dca17;
-  box-sizing: border-box;
-  color: #2a1f62;
-  cursor: pointer;
-  display: flex;
-  font-family: "Cascadia Code",Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
-  font-size: 1rem;
-  justify-content: center;
-  line-height: 1.5rem;
-  padding: 15px;
-  position: relative;
-  text-align: left;
-  transition: .2s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: pre;
-  width: max-content;
-  word-break: normal;
-  word-spacing: normal;
-}
 
-.button-67:hover {
-  background: #f8f8ff;
-  box-shadow: -15px -15px 30px 0 #fff, 15px 15px 30px 0 #1d0dca17;
-}
 
-@media (min-width: 768px) {
-  .button-67 {
-    padding: 24px;
-  }
-}
         
 
 /* Parent background */
@@ -440,6 +294,21 @@
     -webkit-transition: all 200ms linear;
     transition: all 200ms linear;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  margin-top: 5%;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 40% 0% 40% 0%;
+  font-size: 30px;
+  text-align: center;
+  margin: 3%;
+  border-radius: 5px;
+  box-shadow: -5px -5px 10px -5px #f9fbfd, 5px 5px 20px #a9bee8;
+}
   </style>
 </head>
 
@@ -458,19 +327,41 @@
     </svg>
     <div class="divBtn">
       <h2>@mnajiri<span class="sPn"><i class="fa fa-trophy"></i></span></h2>
+      <p class="qBio">- 👋 Hi, I’m @mnajiri</p>
+      <p class="qBio">- 👀 I’m interested in js</p>
+      <p class="qBio">- 🌱 I’m currently learning nodejs</p>
+      <p class="qBio">- 💞️ I’m looking to collaborate on AI</p>
+      <p class="qBio">- 📫 You can find me on social media facebook or IG</p>        
+      <p>𝘓𝘪𝘴𝘵𝘦𝘯 𝘏𝘢𝘮𝘢𝘥𝘪, 𝘣𝘦 𝘤𝘢𝘳𝘦𝘧𝘶𝘭 𝘸𝘩𝘰 𝘺𝘰𝘶 𝘵𝘳𝘶𝘴𝘵, 𝘚𝘢𝘵𝘢𝘯 𝘸𝘢𝘴 𝘰𝘯𝘤𝘦 𝘢𝘯 𝘢𝘯𝘨𝘦𝘭</p>
+
+      <div>
+        <ul>
+          <li><a href="https://www.Twitter.com/mnajiri"><span class="sPn"><i class="fa fa-twitter"></i></span>Twitter
+          </a></li>
+          <li><a href="https://www.instagram.com/mnajiri"><span class="sPn"><i class="fa fa-instagram"></i></span>Instagram
+          </a></li>
+          <li><a href="https://www.facebook.com/najirii"><span class="sPn"><i class="fa fa-facebook"></i></span>Facebook
+          </a></li>
+        </ul>
+      </div>
+
+
     <!-- HTML !-->
-    <button class="button-55" role="button"><span class="sPn"><i class="fa fa-twitter"></i></span>Twitter</button>
-    <!-- HTML !-->
-    <button class="button-55" role="button"><span class="sPn"><i class="fa fa-instagram"></i></span>Instgram</button>
-    <!-- HTML !-->
-    <button class="button-55" role="button"><span class="sPn"><i class="fa fa-facebook"></i></span>Facebook</button>
-    <!-- HTML !-->
-    <button class="button-61" role="button">Button 61</button>
-    <!-- HTML !-->
-    <button class="button-49" role="button">Button 49</button>
-    <!-- HTML !-->
-    <button class="button-67" role="button">Button 67</button>
-    
+    <button class="button-61" role="button">soon...</button>
+
+
+    <div class="grid-container">
+      <div class="grid-item">1</div>
+      <div class="grid-item">2</div>
+      <div class="grid-item">3</div>  
+      <div class="grid-item">4</div>
+      <div class="grid-item">5</div>
+      <div class="grid-item">6</div>  
+      <div class="grid-item">7</div>
+      <div class="grid-item">8</div>
+      <div class="grid-item">9</div>
+      <div class="grid-item">9</div>  
+    </div>
 
 
 
