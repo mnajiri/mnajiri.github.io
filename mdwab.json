@@ -1,0 +1,14 @@
+{
+  "css": {
+    "content": "محتوى CSS هنا...",
+    "image": "رابط-الصورة-css.jpg"
+  },
+  "color": {
+    "content": "محتوى الألوان هنا...",
+    "image": "رابط-الصورة-color.jpg"
+  },
+  "bootstrap": {
+    "content": "محتوى Bootstrap هنا...",
+    "image": "رابط-الصورة-bootstrap.jpg"
+  }
+}
