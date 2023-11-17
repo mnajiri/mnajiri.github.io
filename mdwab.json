@@ -1,17 +1,52 @@
 {
+  "bootstrap": {
+    "title": "Bootstrap",
+    "content": "إطار عمل مفتوح المصدر يوفر مجموعة متنوعة من العناصر والأدوات لتصميم صفحات الويب بشكل سريع وسهل. يوفر Bootstrap نظامًا للشبكة المرنة ومجموعة متنوعة من العناصر الجاهزة، مما يجعله خيارًا شائعًا للمطورين.",
+    "image": "https://1.bp.blogspot.com/-lwB7a4SlY_k/X00F8TDGbPI/AAAAAAAAIqE/UoQJIMkW-14rPNvHI9enorM6HQlOE6ObQCPcBGAYYCw/s640/20200831_151304.jpg"
+  },
   "css": {
-    "title": "عنوان CSS",
-    "content": "محتوى CSS هنا...",
-    "image": "رابط-الصورة-css.jpg"
+    "title": "CSS",
+    "content": "لغة تستخدم لتنسيق وتصميم صفحات الويب. تستخدم CSS لتحديد كيفية عرض عناصر HTML على المتصفح. يمكن استخدام CSS لتحديد الألوان والخطوط والتنسيقات والهوامش والحواف والتوزيعات.",
+    "image": "https://1.bp.blogspot.com/-lwB7a4SlY_k/X00F8TDGbPI/AAAAAAAAIqE/UoQJIMkW-14rPNvHI9enorM6HQlOE6ObQCPcBGAYYCw/s640/20200831_151304.jpg"
+  },
+  "blogger": {
+    "title": "Blogger",
+    "content": "منصة تدوين مجانية تسمح للمستخدمين بإنشاء مدوناتهم الخاصة. تقدم Blogger مجموعة متنوعة من القوالب الجاهزة التي يمكن تخصيصها حسب احتياجات المستخدم.",
+    "image": "https://1.bp.blogspot.com/-lwB7a4SlY_k/X00F8TDGbPI/AAAAAAAAIqE/UoQJIMkW-14rPNvHI9enorM6HQlOE6ObQCPcBGAYYCw/s640/20200831_151304.jpg"
   },
   "color": {
-    "title": "عنوان الألوان",
-    "content": "محتوى الألوان هنا...",
-    "image": "رابط-الصورة-color.jpg"
+    "title": "Color",
+    "content": "في البرمجة والتصميم، اللون يلعب دورًا أساسيًا في تحديد المظهر والشعور العام للتطبيقات والمواقع. يتم تحديد الألوان باستخدام رموز أو قيم معينة تُمثّل اللون بشكل دقيق.",
+    "image": "https://1.bp.blogspot.com/-lwB7a4SlY_k/X00F8TDGbPI/AAAAAAAAIqE/UoQJIMkW-14rPNvHI9enorM6HQlOE6ObQCPcBGAYYCw/s640/20200831_151304.jpg"
   },
-  "bootstrap": {
-    "title": "عنوان Bootstrap",
-    "content": "محتوى Bootstrap هنا...",
-    "image": "رابط-الصورة-bootstrap.jpg"
+  "mdl": {
+    "title": "Material Design",
+    "content": "نظام تصميم تم تطويره من قِبل Google، وهو يُستخدم لتصميم واجهات المستخدم الحديثة والجذابة لتطبيقات Android ومنصات أخرى. يهدف Material Design إلى توفير تجربة موحدة ومميزة للمستخدمين عبر مختلف أنواع الأجهزة والأحجام.",
+    "image": "https://1.bp.blogspot.com/-lwB7a4SlY_k/X00F8TDGbPI/AAAAAAAAIqE/UoQJIMkW-14rPNvHI9enorM6HQlOE6ObQCPcBGAYYCw/s640/20200831_151304.jpg"
+  },
+  "apps": {
+    "title": "Apps",
+    "content": "تطبيقات Android وiOS هي تطبيقات تم تطويرها للعمل على أنظمة تشغيل مختلفة: Android و iOS. تختلف هاتين الأنظمتين فيما يتعلق بالبيئة والأدوات ولغات البرمجة المستخدمة، لكنهما تمثلان نظامين رئيسيين للهواتف المحمولة والأجهزة اللوحية.",
+    "image": "https://1.bp.blogspot.com/-lwB7a4SlY_k/X00F8TDGbPI/AAAAAAAAIqE/UoQJIMkW-14rPNvHI9enorM6HQlOE6ObQCPcBGAYYCw/s640/20200831_151304.jpg"
+  },
+  "android": {
+    "title": "Android",
+    "content": "نظام تشغيل مفتوح المصدر تم تطويره بواسطة Google، وهو مصمم أساسًا للأجهزة المحمولة مثل الهواتف الذكية والأجهزة اللوحية. يُعتبر أندرويد واحدًا من أكثر أنظمة التشغيل شيوعًا في العالم، ويعتمد عليه ملايين الأجهزة والمستخدمين حول العالم.",
+    "image": "https://1.bp.blogspot.com/-lwB7a4SlY_k/X00F8TDGbPI/AAAAAAAAIqE/UoQJIMkW-14rPNvHI9enorM6HQlOE6ObQCPcBGAYYCw/s640/20200831_151304.jpg"
+  },
+  "js": {
+    "title": "JS",
+    "content": "جافا سكريبت لغة برمجة تستخدم أساسًا في تطوير تطبيقات الويب. إنها لغة برمجة نصية تُنفذ في المتصفحات وتمكّن المطورين من إضافة تفاعل وديناميكية لصفحات الويب.",
+    "image": "https://1.bp.blogspot.com/-lwB7a4SlY_k/X00F8TDGbPI/AAAAAAAAIqE/UoQJIMkW-14rPNvHI9enorM6HQlOE6ObQCPcBGAYYCw/s640/20200831_151304.jpg"
+  },
+  "icon": {
+    "title": "Icon",
+    "content": "الأيقونة رمز صغير يُستخدم لتمثيل مفهوم أو عنصر معين بطريقة بصرية. تُستخدم الأيقونات على نطاق واسع في التطبيقات، المواقع الإلكترونية، أنظمة التشغيل، والواجهات المختلفة لتوجيه المستخدمين وتحسين تجربتهم.",
+    "image": "https://1.bp.blogspot.com/-lwB7a4SlY_k/X00F8TDGbPI/AAAAAAAAIqE/UoQJIMkW-14rPNvHI9enorM6HQlOE6ObQCPcBGAYYCw/s640/20200831_151304.jpg"
+  },
+  "facebook": {
+    "title": "Facebook",
+    "content": "موقع تواصل اجتماعي تأسس في عام 2004 من قبل مارك زوكربيرج وزملائه في جامعة هارفارد. وأصبح في وقت قصير أحد أشهر مواقع التواصل الاجتماعي في العالم، حيث يضم أكثر من 2.9 مليار مستخدم نشط شهريًا. يوفر Facebook مجموعة متنوعة من الميزات للمستخدمين، بما في ذلك إنشاء ملف شخصي وإضافة معلومات حول نفسك وأصدقائك، و التواصل مع الأصدقاء والعائلة عن طريق إرسال الرسائل والتعليقات والتفاعل مع المنشورات، والانضمام إلى المجموعات والصفحات لمشاركة اهتماماتك مع الآخرين، ونشر المحتوى، مثل الصور ومقاطع الفيديو والنص، والإعلان عن المنتجات والخدمات.",
+    "image": "https://1.bp.blogspot.com/-lwB7a4SlY_k/X00F8TDGbPI/AAAAAAAAIqE/UoQJIMkW-14rPNvHI9enorM6HQlOE6ObQCPcBGAYYCw/s640/20200831_151304.jpg"
   }
 }
