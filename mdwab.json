@@ -1,13 +1,16 @@
 {
   "css": {
+    "title": "عنوان CSS",
     "content": "محتوى CSS هنا...",
     "image": "رابط-الصورة-css.jpg"
   },
   "color": {
+    "title": "عنوان الألوان",
     "content": "محتوى الألوان هنا...",
     "image": "رابط-الصورة-color.jpg"
   },
   "bootstrap": {
+    "title": "عنوان Bootstrap",
     "content": "محتوى Bootstrap هنا...",
     "image": "رابط-الصورة-bootstrap.jpg"
   }
