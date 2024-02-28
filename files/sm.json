@@ -1,0 +1,35 @@
+{
+    "social_media": [
+      {
+        "platform": "Facebook",
+        "link": "https://example.com/page1",
+        "description":  "Diverse content, community updates. Join for the latest posts. Thanks for your support! 🌟"
+      },
+      {
+        "platform": "Twitter",
+        "link": "https://google.com/",
+        "description":  "Daily insights and interesting content. Follow for a vibrant conversation! 🐦 #mdwab"
+      },
+      {
+        "platform": "Instagram",
+        "link": "https://facebook.com/",
+        "description": "Visual journey with vibrant snapshots. Share life's beauty together! 📸 #mdwab"
+      },
+      {
+        "platform": "Telegram",
+        "link": "https://instagram.com/",
+        "description": "Exclusive content, updates, and closer connection. Join for discussions! 📢✨ #mdwab"
+      },
+      {
+        "platform": "GitHub",
+        "link": "https://x.com/",
+        "description": "Coding adventures and collaborative projects. Dive into the world of code! 🚀🔧 #mnajiri"
+      },
+      {
+        "platform": "CodePen",
+        "link": "https://telegram.com/",
+        "description": "Creative coding playground. Explore web projects and snippets. Let's create together! 🎨✨ #mnajiri"
+      }
+    ]
+  }
+  
