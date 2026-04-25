@@ -342,4 +342,26 @@ body, html {
   box-sizing: border-box;
   padding: 10px;
 }
-
+/* Mobile Responsive */
+@media (max-width: 767px) {
+  .section {
+    font-size: 1.2em;
+  }
+  .boxx h2 {
+    font-size: 16px;
+  }
+  .bg3 svg {
+    width: 150px;
+    height: 150px;
+  }
+  .title {
+    font-size: clamp(1.5em, 8vw, 2.5em);
+  }
+  .card {
+    padding: 15px;
+    margin: auto 3%;
+  }
+  .sH1 {
+    font-size: 1.2em;
+  }
+}
