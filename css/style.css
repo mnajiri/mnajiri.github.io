@@ -365,3 +365,7 @@ body, html {
     font-size: 1.2em;
   }
 }
+.bg1, .bg2, .bg3, .bg4, .bg5, .section:nth-child(5) {
+  position: relative;
+  overflow: hidden;
+}
