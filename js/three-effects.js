@@ -1,4 +1,4 @@
-function createGalaxy(container, color1, color2) {
+function createSpace(container) {
   const canvas = document.createElement('canvas');
   canvas.style.cssText = 'position:absolute;top:0;left:0;z-index:0;';
   container.appendChild(canvas);
@@ -8,70 +8,175 @@ function createGalaxy(container, color1, color2) {
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.z = 3;
+  camera.position.z = 4;
 
-  const count = 5000;
-  const geo = new THREE.BufferGeometry();
-  const positions = new Float32Array(count * 3);
-  const colors = new Float32Array(count * 3);
-  const colorA = new THREE.Color(color1);
-  const colorB = new THREE.Color(color2);
+  // ===== STARS =====
+  const starsGeo = new THREE.BufferGeometry();
+  const starsCount = 8000;
+  const starsPos = new Float32Array(starsCount * 3);
+  const starsColors = new Float32Array(starsCount * 3);
 
-  for (let i = 0; i < count; i++) {
+  const starColorOptions = [
+    new THREE.Color('#ffffff'),
+    new THREE.Color('#aaaaff'),
+    new THREE.Color('#ffddaa'),
+    new THREE.Color('#aaffff'),
+  ];
+
+  for (let i = 0; i < starsCount; i++) {
     const i3 = i * 3;
-    const radius = Math.random() * 5;
-    const spinAngle = radius * 5;
-    const branchAngle = ((i % 3) / 3) * Math.PI * 2;
-    const randomX = (Math.random() - 0.5) * 0.5;
-    const randomY = (Math.random() - 0.5) * 0.5;
-    const randomZ = (Math.random() - 0.5) * 0.5;
+    starsPos[i3]     = (Math.random() - 0.5) * 30;
+    starsPos[i3 + 1] = (Math.random() - 0.5) * 30;
+    starsPos[i3 + 2] = (Math.random() - 0.5) * 30;
 
-    positions[i3]     = Math.cos(branchAngle + spinAngle) * radius + randomX;
-    positions[i3 + 1] = randomY;
-    positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ;
-
-    const mixedColor = colorA.clone().lerp(colorB, radius / 5);
-    colors[i3]     = mixedColor.r;
-    colors[i3 + 1] = mixedColor.g;
-    colors[i3 + 2] = mixedColor.b;
+    const c = starColorOptions[Math.floor(Math.random() * starColorOptions.length)];
+    starsColors[i3]     = c.r;
+    starsColors[i3 + 1] = c.g;
+    starsColors[i3 + 2] = c.b;
   }
 
-  geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+  starsGeo.setAttribute('position', new THREE.BufferAttribute(starsPos, 3));
+  starsGeo.setAttribute('color', new THREE.BufferAttribute(starsColors, 3));
 
-  const mat = new THREE.PointsMaterial({
-    size: 0.02,
+  const starsMat = new THREE.PointsMaterial({
+    size: 0.03,
     vertexColors: true,
     depthWrite: false,
     blending: THREE.AdditiveBlending,
   });
 
-  const galaxy = new THREE.Points(geo, mat);
+  const stars = new THREE.Points(starsGeo, starsMat);
+  scene.add(stars);
+
+  // ===== GALAXY ARMS =====
+  const galaxyGeo = new THREE.BufferGeometry();
+  const galaxyCount = 6000;
+  const galaxyPos = new Float32Array(galaxyCount * 3);
+  const galaxyColors = new Float32Array(galaxyCount * 3);
+
+  const colorA = new THREE.Color('#5b37eb');
+  const colorB = new THREE.Color('#4ddc9e');
+  const colorC = new THREE.Color('#f1307e');
+
+  for (let i = 0; i < galaxyCount; i++) {
+    const i3 = i * 3;
+    const radius = Math.random() * 6;
+    const spinAngle = radius * 3;
+    const branchAngle = ((i % 4) / 4) * Math.PI * 2;
+
+    const scatter = Math.pow(Math.random(), 3) * (Math.random() < 0.5 ? 1 : -1) * 0.5;
+
+    galaxyPos[i3]     = Math.cos(branchAngle + spinAngle) * radius + scatter;
+    galaxyPos[i3 + 1] = scatter * 0.3;
+    galaxyPos[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + scatter;
+
+    const mixColor = radius < 3
+      ? colorA.clone().lerp(colorB, radius / 3)
+      : colorB.clone().lerp(colorC, (radius - 3) / 3);
+
+    galaxyColors[i3]     = mixColor.r;
+    galaxyColors[i3 + 1] = mixColor.g;
+    galaxyColors[i3 + 2] = mixColor.b;
+  }
+
+  galaxyGeo.setAttribute('position', new THREE.BufferAttribute(galaxyPos, 3));
+  galaxyGeo.setAttribute('color', new THREE.BufferAttribute(galaxyColors, 3));
+
+  const galaxyMat = new THREE.PointsMaterial({
+    size: 0.025,
+    vertexColors: true,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+  });
+
+  const galaxy = new THREE.Points(galaxyGeo, galaxyMat);
   scene.add(galaxy);
 
-  return { renderer, scene, camera, galaxy };
+  // ===== NEBULA =====
+  const nebulaGeo = new THREE.BufferGeometry();
+  const nebulaCount = 2000;
+  const nebulaPos = new Float32Array(nebulaCount * 3);
+  const nebulaColors = new Float32Array(nebulaCount * 3);
+
+  const nebulaColorOptions = [
+    new THREE.Color('#ff6b6b'),
+    new THREE.Color('#5b37eb'),
+    new THREE.Color('#4ddc9e'),
+    new THREE.Color('#f1307e'),
+  ];
+
+  for (let i = 0; i < nebulaCount; i++) {
+    const i3 = i * 3;
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.random() * Math.PI;
+    const r = Math.random() * 4 + 1;
+
+    nebulaPos[i3]     = r * Math.sin(phi) * Math.cos(theta);
+    nebulaPos[i3 + 1] = r * Math.sin(phi) * Math.sin(theta) * 0.3;
+    nebulaPos[i3 + 2] = r * Math.cos(phi);
+
+    const c = nebulaColorOptions[Math.floor(Math.random() * nebulaColorOptions.length)];
+    nebulaColors[i3]     = c.r;
+    nebulaColors[i3 + 1] = c.g;
+    nebulaColors[i3 + 2] = c.b;
+  }
+
+  nebulaGeo.setAttribute('position', new THREE.BufferAttribute(nebulaPos, 3));
+  nebulaGeo.setAttribute('color', new THREE.BufferAttribute(nebulaColors, 3));
+
+  const nebulaMat = new THREE.PointsMaterial({
+    size: 0.08,
+    vertexColors: true,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+    transparent: true,
+    opacity: 0.4,
+  });
+
+  const nebula = new THREE.Points(nebulaGeo, nebulaMat);
+  scene.add(nebula);
+
+  return { renderer, scene, camera, stars, galaxy, nebula };
 }
 
-// كل section بلون مختلف
+// ===== INIT كل section =====
 const sections = [
-  createGalaxy(document.querySelector('.bg1'), '#4ddc9e', '#5b37eb'),
-  createGalaxy(document.querySelector('.boo'),  '#647eff', '#42d392'),
-  createGalaxy(document.querySelector('.bg2'),  '#ff6b6b', '#f1307e'),
-  createGalaxy(document.querySelector('.bg3'),  '#ffffff', '#9b59b6'),
-  createGalaxy(document.querySelector('.section:nth-child(5)'), '#ffffff', '#aaaaff'),
-  createGalaxy(document.querySelector('.bg4'),  '#ff9d00', '#ff4444'),
-  createGalaxy(document.querySelector('.bg5'),  '#2E17FF', '#00ffff'),
+  createSpace(document.querySelector('.bg1')),
+  createSpace(document.querySelector('.boo')),
+  createSpace(document.querySelector('.bg2')),
+  createSpace(document.querySelector('.bg3')),
+  createSpace(document.querySelector('.section:nth-child(5)')),
+  createSpace(document.querySelector('.bg4')),
+  createSpace(document.querySelector('.bg5')),
 ];
 
+// ===== ANIMATE =====
+let t = 0;
 function animate() {
   requestAnimationFrame(animate);
-  sections.forEach(({ renderer, scene, camera, galaxy }) => {
-    galaxy.rotation.y += 0.001;
+  t += 0.0003;
+
+  sections.forEach(({ renderer, scene, camera, stars, galaxy, nebula }) => {
+    // حركة بطيئة جداً
+    stars.rotation.y  += 0.0001;
+    stars.rotation.x  += 0.00005;
+
+    galaxy.rotation.y += 0.0003;
+    galaxy.rotation.z += 0.0001;
+
+    nebula.rotation.y -= 0.0002;
+    nebula.rotation.x += 0.0001;
+
+    // تنفس خفيف
+    const pulse = Math.sin(t) * 0.0002;
+    galaxy.rotation.x += pulse;
+
     renderer.render(scene, camera);
   });
 }
 animate();
 
+// ===== RESIZE =====
 window.addEventListener('resize', () => {
   sections.forEach(({ renderer, camera }) => {
     camera.aspect = window.innerWidth / window.innerHeight;
