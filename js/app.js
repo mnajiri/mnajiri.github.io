@@ -1,4 +1,21 @@
+// Touch Support للموبايل
+let touchStartY = 0;
+let touchEndY = 0;
 
+document.addEventListener('touchstart', function(e) {
+    touchStartY = e.changedTouches[0].screenY;
+});
+
+document.addEventListener('touchend', function(e) {
+    touchEndY = e.changedTouches[0].screenY;
+    
+    if (new Date() - (window.lastScrollTime || 0) < 600) return;
+    
+    const delta = touchStartY > touchEndY ? 1 : -1;
+    currentSection = Math.min(Math.max(currentSection + delta, 0), document.querySelectorAll('.section').length - 1);
+    document.querySelector('.section:nth-child(' + (currentSection + 1) + ')').scrollIntoView({ behavior: 'smooth' });
+    window.lastScrollTime = new Date();
+});
 let currentSection = 0;
 
 document.addEventListener('wheel', function(event) {
