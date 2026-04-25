@@ -39,7 +39,7 @@ function createSpace(container) {
   starsGeo.setAttribute('color', new THREE.BufferAttribute(starsColors, 3));
 
   const starsMat = new THREE.PointsMaterial({
-    size: 0.03,
+    size: 0.008,
     vertexColors: true,
     depthWrite: false,
     blending: THREE.AdditiveBlending,
@@ -83,7 +83,7 @@ function createSpace(container) {
   galaxyGeo.setAttribute('color', new THREE.BufferAttribute(galaxyColors, 3));
 
   const galaxyMat = new THREE.PointsMaterial({
-    size: 0.025,
+    size: 0.01,
     vertexColors: true,
     depthWrite: false,
     blending: THREE.AdditiveBlending,
@@ -125,12 +125,12 @@ function createSpace(container) {
   nebulaGeo.setAttribute('color', new THREE.BufferAttribute(nebulaColors, 3));
 
   const nebulaMat = new THREE.PointsMaterial({
-    size: 0.08,
+    size: 0.03,
     vertexColors: true,
     depthWrite: false,
     blending: THREE.AdditiveBlending,
     transparent: true,
-    opacity: 0.4,
+    opacity: 0.2,
   });
 
   const nebula = new THREE.Points(nebulaGeo, nebulaMat);
@@ -157,7 +157,6 @@ function animate() {
   t += 0.0003;
 
   sections.forEach(({ renderer, scene, camera, stars, galaxy, nebula }) => {
-    // حركة بطيئة جداً
     stars.rotation.y  += 0.0001;
     stars.rotation.x  += 0.00005;
 
@@ -167,7 +166,6 @@ function animate() {
     nebula.rotation.y -= 0.0002;
     nebula.rotation.x += 0.0001;
 
-    // تنفس خفيف
     const pulse = Math.sin(t) * 0.0002;
     galaxy.rotation.x += pulse;
 
