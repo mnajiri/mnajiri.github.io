@@ -10,6 +10,20 @@ function createSpace(container) {
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.z = 4;
 
+  // ===== CIRCLE TEXTURE =====
+  const spriteCanvas = document.createElement('canvas');
+  spriteCanvas.width = 32;
+  spriteCanvas.height = 32;
+  const ctx = spriteCanvas.getContext('2d');
+  const gradient = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
+  gradient.addColorStop(0, 'rgba(255,255,255,1)');
+  gradient.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.fillStyle = gradient;
+  ctx.beginPath();
+  ctx.arc(16, 16, 16, 0, Math.PI * 2);
+  ctx.fill();
+  const sprite = new THREE.CanvasTexture(spriteCanvas);
+
   // ===== STARS =====
   const starsGeo = new THREE.BufferGeometry();
   const starsCount = 8000;
@@ -28,7 +42,6 @@ function createSpace(container) {
     starsPos[i3]     = (Math.random() - 0.5) * 30;
     starsPos[i3 + 1] = (Math.random() - 0.5) * 30;
     starsPos[i3 + 2] = (Math.random() - 0.5) * 30;
-
     const c = starColorOptions[Math.floor(Math.random() * starColorOptions.length)];
     starsColors[i3]     = c.r;
     starsColors[i3 + 1] = c.g;
@@ -39,16 +52,18 @@ function createSpace(container) {
   starsGeo.setAttribute('color', new THREE.BufferAttribute(starsColors, 3));
 
   const starsMat = new THREE.PointsMaterial({
-    size: 0.008,
+    size: 0.15,
+    map: sprite,
     vertexColors: true,
     depthWrite: false,
+    transparent: true,
     blending: THREE.AdditiveBlending,
   });
 
   const stars = new THREE.Points(starsGeo, starsMat);
   scene.add(stars);
 
-  // ===== GALAXY ARMS =====
+  // ===== GALAXY =====
   const galaxyGeo = new THREE.BufferGeometry();
   const galaxyCount = 6000;
   const galaxyPos = new Float32Array(galaxyCount * 3);
@@ -63,7 +78,6 @@ function createSpace(container) {
     const radius = Math.random() * 6;
     const spinAngle = radius * 3;
     const branchAngle = ((i % 4) / 4) * Math.PI * 2;
-
     const scatter = Math.pow(Math.random(), 3) * (Math.random() < 0.5 ? 1 : -1) * 0.5;
 
     galaxyPos[i3]     = Math.cos(branchAngle + spinAngle) * radius + scatter;
@@ -83,9 +97,11 @@ function createSpace(container) {
   galaxyGeo.setAttribute('color', new THREE.BufferAttribute(galaxyColors, 3));
 
   const galaxyMat = new THREE.PointsMaterial({
-    size: 0.01,
+    size: 0.12,
+    map: sprite,
     vertexColors: true,
     depthWrite: false,
+    transparent: true,
     blending: THREE.AdditiveBlending,
   });
 
@@ -125,12 +141,13 @@ function createSpace(container) {
   nebulaGeo.setAttribute('color', new THREE.BufferAttribute(nebulaColors, 3));
 
   const nebulaMat = new THREE.PointsMaterial({
-    size: 0.03,
+    size: 0.2,
+    map: sprite,
     vertexColors: true,
     depthWrite: false,
-    blending: THREE.AdditiveBlending,
     transparent: true,
     opacity: 0.2,
+    blending: THREE.AdditiveBlending,
   });
 
   const nebula = new THREE.Points(nebulaGeo, nebulaMat);
@@ -139,7 +156,7 @@ function createSpace(container) {
   return { renderer, scene, camera, stars, galaxy, nebula };
 }
 
-// ===== INIT كل section =====
+// ===== INIT =====
 const sections = [
   createSpace(document.querySelector('.bg1')),
   createSpace(document.querySelector('.boo')),
@@ -159,16 +176,11 @@ function animate() {
   sections.forEach(({ renderer, scene, camera, stars, galaxy, nebula }) => {
     stars.rotation.y  += 0.0001;
     stars.rotation.x  += 0.00005;
-
     galaxy.rotation.y += 0.0003;
     galaxy.rotation.z += 0.0001;
-
     nebula.rotation.y -= 0.0002;
     nebula.rotation.x += 0.0001;
-
-    const pulse = Math.sin(t) * 0.0002;
-    galaxy.rotation.x += pulse;
-
+    galaxy.rotation.x += Math.sin(t) * 0.0002;
     renderer.render(scene, camera);
   });
 }
