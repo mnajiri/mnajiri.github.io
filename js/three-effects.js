@@ -26,7 +26,7 @@ function createSpace(container) {
 
   // ===== STARS =====
   const starsGeo = new THREE.BufferGeometry();
-  const starsCount = 8000;
+  const starsCount = 500;
   const starsPos = new Float32Array(starsCount * 3);
   const starsColors = new Float32Array(starsCount * 3);
 
