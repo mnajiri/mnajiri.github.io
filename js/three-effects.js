@@ -1,185 +1,86 @@
-// ===== SECTION 1 - Particles =====
-const canvas1 = document.createElement('canvas');
-canvas1.style.cssText = 'position:absolute;top:0;left:0;z-index:0;';
-document.querySelector('.bg1').appendChild(canvas1);
+function createGalaxy(container, color1, color2) {
+  const canvas = document.createElement('canvas');
+  canvas.style.cssText = 'position:absolute;top:0;left:0;z-index:0;';
+  container.appendChild(canvas);
 
-const renderer1 = new THREE.WebGLRenderer({ canvas: canvas1, alpha: true });
-renderer1.setSize(window.innerWidth, window.innerHeight);
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
 
-const scene1 = new THREE.Scene();
-const camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera1.position.z = 5;
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.z = 3;
 
-// Particles
-const particlesGeo = new THREE.BufferGeometry();
-const count = 2000;
-const positions = new Float32Array(count * 3);
-for (let i = 0; i < count * 3; i++) {
-  positions[i] = (Math.random() - 0.5) * 20;
+  // Galaxy
+  const count = 5000;
+  const geo = new THREE.BufferGeometry();
+  const positions = new Float32Array(count * 3);
+  const colors = new Float32Array(count * 3);
+
+  const colorA = new THREE.Color(color1);
+  const colorB = new THREE.Color(color2);
+
+  for (let i = 0; i < count; i++) {
+    const i3 = i * 3;
+    const radius = Math.random() * 5;
+    const spinAngle = radius * 5;
+    const branchAngle = ((i % 3) / 3) * Math.PI * 2;
+
+    const randomX = (Math.random() - 0.5) * 0.5;
+    const randomY = (Math.random() - 0.5) * 0.5;
+    const randomZ = (Math.random() - 0.5) * 0.5;
+
+    positions[i3]     = Math.cos(branchAngle + spinAngle) * radius + randomX;
+    positions[i3 + 1] = randomY;
+    positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ;
+
+    const mixedColor = colorA.clone().lerp(colorB, radius / 5);
+    colors[i3]     = mixedColor.r;
+    colors[i3 + 1] = mixedColor.g;
+    colors[i3 + 2] = mixedColor.b;
+  }
+
+  geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+  const mat = new THREE.PointsMaterial({
+    size: 0.02,
+    vertexColors: true,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+  });
+
+  const galaxy = new THREE.Points(geo, mat);
+  scene.add(galaxy);
+
+  return { renderer, scene, camera, galaxy };
 }
-particlesGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-const particlesMat = new THREE.PointsMaterial({ color: 0x4ddc9e, size: 0.05 });
-const particles = new THREE.Points(particlesGeo, particlesMat);
-scene1.add(particles);
 
-// ===== SECTION 3 - Rotating Torus =====
-const canvas3 = document.createElement('canvas');
-canvas3.style.cssText = 'position:absolute;top:0;left:0;z-index:0;width:100%;height:100%;';
-document.querySelector('.bg2').appendChild(canvas3);
+// كل section بلون مختلف
+const s1 = createGalaxy(document.querySelector('.bg1'), '#4ddc9e', '#5b37eb');
+const s2 = createGalaxy(document.querySelector('.boo'), '#647eff', '#42d392');
+const s3 = createGalaxy(document.querySelector('.bg2'), '#ff6b6b', '#f1307e');
+const s4 = createGalaxy(document.querySelector('.bg3'), '#ffffff', '#9b59b6');
+const s5 = createGalaxy(document.querySelector('.section:nth-child(5)'), '#ffffff', '#aaaaff');
+const s6 = createGalaxy(document.querySelector('.bg4'), '#ff9d00', '#ff4444');
+const s7 = createGalaxy(document.querySelector('.bg5'), '#2E17FF', '#00ffff');
 
-const renderer3 = new THREE.WebGLRenderer({ canvas: canvas3, alpha: true });
-renderer3.setSize(window.innerWidth, window.innerHeight);
+const sections = [s1, s2, s3, s4, s5, s6, s7];
 
-const scene3 = new THREE.Scene();
-const camera3 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera3.position.z = 5;
-
-const torusGeo = new THREE.TorusGeometry(2, 0.3, 16, 100);
-const torusMat = new THREE.MeshStandardMaterial({ color: 0x5b37eb, wireframe: true });
-const torus = new THREE.Mesh(torusGeo, torusMat);
-scene3.add(torus);
-
-const light3 = new THREE.PointLight(0xffffff, 1);
-light3.position.set(5, 5, 5);
-scene3.add(light3);
-
-// ===== SECTION 4 - Floating Sphere (bg3 - logo section) =====
-const canvas4 = document.createElement('canvas');
-canvas4.style.cssText = 'position:absolute;top:0;left:0;z-index:0;';
-document.querySelector('.bg3').appendChild(canvas4);
-
-const renderer4 = new THREE.WebGLRenderer({ canvas: canvas4, alpha: true });
-renderer4.setSize(window.innerWidth, window.innerHeight);
-
-const scene4 = new THREE.Scene();
-const camera4 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera4.position.z = 5;
-
-const sphereGeo = new THREE.SphereGeometry(1.5, 32, 32);
-const sphereMat = new THREE.MeshStandardMaterial({ color: 0x9b59b6, wireframe: true });
-const sphere = new THREE.Mesh(sphereGeo, sphereMat);
-scene4.add(sphere);
-
-const light4 = new THREE.PointLight(0xffffff, 1);
-light4.position.set(5, 5, 5);
-scene4.add(light4);
-
-// ===== SECTION 5 - Video Section Stars =====
-const canvas5 = document.createElement('canvas');
-canvas5.style.cssText = 'position:absolute;top:0;left:0;z-index:0;';
-document.querySelector('.section:nth-child(5)').appendChild(canvas5);
-
-const renderer5 = new THREE.WebGLRenderer({ canvas: canvas5, alpha: true });
-renderer5.setSize(window.innerWidth, window.innerHeight);
-
-const scene5 = new THREE.Scene();
-const camera5 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera5.position.z = 5;
-
-const starsGeo = new THREE.BufferGeometry();
-const starsCount = 1500;
-const starsPos = new Float32Array(starsCount * 3);
-for (let i = 0; i < starsCount * 3; i++) {
-  starsPos[i] = (Math.random() - 0.5) * 30;
-}
-starsGeo.setAttribute('position', new THREE.BufferAttribute(starsPos, 3));
-const starsMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.08 });
-const stars = new THREE.Points(starsGeo, starsMat);
-scene5.add(stars);
-
-// ===== SECTION 6 - bg4 Floating Boxes =====
-const canvas6 = document.createElement('canvas');
-canvas6.style.cssText = 'position:absolute;top:0;left:0;z-index:0;';
-document.querySelector('.bg4').appendChild(canvas6);
-
-const renderer6 = new THREE.WebGLRenderer({ canvas: canvas6, alpha: true });
-renderer6.setSize(window.innerWidth, window.innerHeight);
-
-const scene6 = new THREE.Scene();
-const camera6 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera6.position.z = 5;
-
-const boxes = [];
-for (let i = 0; i < 10; i++) {
-  const geo = new THREE.BoxGeometry(0.5, 0.5, 0.5);
-  const mat = new THREE.MeshStandardMaterial({ color: 0xff9d00, wireframe: true });
-  const box = new THREE.Mesh(geo, mat);
-  box.position.set((Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10, (Math.random() - 0.5) * 5);
-  scene6.add(box);
-  boxes.push(box);
-}
-const light6 = new THREE.PointLight(0xffffff, 1);
-light6.position.set(5, 5, 5);
-scene6.add(light6);
-
-// ===== SECTION 7 - bg5 Water Particles =====
-const canvas7 = document.createElement('canvas');
-canvas7.style.cssText = 'position:absolute;top:0;left:0;z-index:0;';
-document.querySelector('.bg5').appendChild(canvas7);
-
-const renderer7 = new THREE.WebGLRenderer({ canvas: canvas7, alpha: true });
-renderer7.setSize(window.innerWidth, window.innerHeight);
-
-const scene7 = new THREE.Scene();
-const camera7 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera7.position.z = 5;
-
-const waterGeo = new THREE.BufferGeometry();
-const waterCount = 1000;
-const waterPos = new Float32Array(waterCount * 3);
-for (let i = 0; i < waterCount * 3; i++) {
-  waterPos[i] = (Math.random() - 0.5) * 20;
-}
-waterGeo.setAttribute('position', new THREE.BufferAttribute(waterPos, 3));
-const waterMat = new THREE.PointsMaterial({ color: 0x2E17FF, size: 0.08 });
-const waterParticles = new THREE.Points(waterGeo, waterMat);
-scene7.add(waterParticles);
-
-// ===== ANIMATE ALL =====
+// Animate
 function animate() {
   requestAnimationFrame(animate);
-
-  // Section 1 - particles rotate
-  particles.rotation.y += 0.001;
-  particles.rotation.x += 0.0005;
-  renderer1.render(scene1, camera1);
-
-  // Section 3 - torus rotate
-  torus.rotation.x += 0.01;
-  torus.rotation.y += 0.005;
-  renderer3.render(scene3, camera3);
-
-  // Section 4 - sphere rotate
-  sphere.rotation.x += 0.005;
-  sphere.rotation.y += 0.01;
-  renderer4.render(scene4, camera4);
-
-  // Section 5 - stars rotate
-  stars.rotation.y += 0.0005;
-  renderer5.render(scene5, camera5);
-
-  // Section 6 - boxes float
-  boxes.forEach((box, i) => {
-    box.rotation.x += 0.01;
-    box.rotation.y += 0.01;
-    box.position.y += Math.sin(Date.now() * 0.001 + i) * 0.002;
+  sections.forEach(({ renderer, scene, camera, galaxy }) => {
+    galaxy.rotation.y += 0.001;
+    renderer.render(scene, camera);
   });
-  renderer6.render(scene6, camera6);
-
-  // Section 7 - water particles
-  waterParticles.rotation.y += 0.001;
-  renderer7.render(scene7, camera7);
 }
-
 animate();
 
-// ===== RESIZE =====
+// Resize
 window.addEventListener('resize', () => {
-  [camera1, camera3, camera4, camera5, camera6, camera7].forEach(cam => {
-    cam.aspect = window.innerWidth / window.innerHeight;
-    cam.updateProjectionMatrix();
-  });
-  [renderer1, renderer3, renderer4, renderer5, renderer6, renderer7].forEach(ren => {
-    ren.setSize(window.innerWidth, window.innerHeight);
+  sections.forEach(({ renderer, camera }) => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
   });
 });
